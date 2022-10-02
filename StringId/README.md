@@ -29,3 +29,8 @@ Maven + Java (11) Project.
 No pure function such as a hash function can reduce any string up to length 255 chars to a 10 digit integer without an
 approximation and therefore will eventually produce collisions. To ensure uniqueness we must therefore utilise a 
 sequence persisted with an index.
+
+### Usage
+Run the tests with maven:
+
+`mvn test`
