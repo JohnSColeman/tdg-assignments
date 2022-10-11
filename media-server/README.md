@@ -49,5 +49,5 @@ start servers: `./start_servers.sh`
 stop servers: `./stop_servers.sh`
 
 ## Tests
-[integration_load_tests](./_integration_load_test)
+[integration_load_tests](./_integration_test)
 
