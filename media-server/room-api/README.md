@@ -1,6 +1,9 @@
 # room-api
 The room api acts as a governor to perform some basic load balancing of the media servers.
 
+## API request examples
+There are some client test requests for IntelliJ IDEs: [room-api.http](room-api.http). Start the servers before testing.
+
 ## Docker
 build: `docker build -t room-api .`
 
