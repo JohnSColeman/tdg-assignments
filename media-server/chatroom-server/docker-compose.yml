@@ -1,0 +1,190 @@
+# Start 30 instances of the chatroom server from ports 50001 to 50030
+# given cannot fix port numbers using replicas create instances individually instead for simplicity
+# (in production we would utilise service discovery and other mechanisms to make this more flexible)
+version: "3.8"
+services:
+  chatroom-1: &default
+    image: "chatroom-server:latest"
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+        window: 3s
+    environment:
+      - SID=50001
+    ports:
+      - "50001:8080"
+  chatroom-2:
+    <<: *default
+    environment:
+      - SID=50002
+    ports:
+      - "50002:8080"
+  chatroom-3:
+    <<: *default
+    environment:
+      - SID=50003
+    ports:
+      - "50003:8080"
+  chatroom-4:
+    <<: *default
+    environment:
+      - SID=50004
+    ports:
+      - "50004:8080"
+  chatroom-5:
+    <<: *default
+    environment:
+      - SID=50005
+    ports:
+      - "50005:8080"
+  chatroom-6:
+    <<: *default
+    environment:
+      - SID=50006
+    ports:
+      - "50006:8080"
+  chatroom-7:
+    <<: *default
+    environment:
+      - SID=50007
+    ports:
+      - "50007:8080"
+  chatroom-8:
+    <<: *default
+    environment:
+      - SID=50008
+    ports:
+      - "50008:8080"
+  chatroom-9:
+    <<: *default
+    environment:
+      - SID=50009
+    ports:
+      - "50009:8080"
+  chatroom-10:
+    <<: *default
+    environment:
+      - SID=50010
+    ports:
+      - "50010:8080"
+  chatroom-11:
+    <<: *default
+    environment:
+      - SID=50011
+    ports:
+      - "50011:8080"
+  chatroom-12:
+    <<: *default
+    environment:
+      - SID=50012
+    ports:
+      - "50012:8080"
+  chatroom-13:
+    <<: *default
+    environment:
+      - SID=50013
+    ports:
+      - "50013:8080"
+  chatroom-14:
+    <<: *default
+    environment:
+      - SID=50014
+    ports:
+      - "50014:8080"
+  chatroom-15:
+    <<: *default
+    environment:
+      - SID=50015
+    ports:
+      - "50015:8080"
+  chatroom-16:
+    <<: *default
+    environment:
+      - SID=50016
+    ports:
+      - "50016:8080"
+  chatroom-17:
+    <<: *default
+    environment:
+      - SID=50017
+    ports:
+      - "50017:8080"
+  chatroom-18:
+    <<: *default
+    environment:
+      - SID=50018
+    ports:
+      - "50018:8080"
+  chatroom-19:
+    <<: *default
+    environment:
+      - SID=50019
+    ports:
+      - "50019:8080"
+  chatroom-20:
+    <<: *default
+    environment:
+      - SID=50020
+    ports:
+      - "50020:8080"
+  chatroom-21:
+    <<: *default
+    environment:
+      - SID=50021
+    ports:
+      - "50021:8080"
+  chatroom-22:
+    <<: *default
+    environment:
+      - SID=50022
+    ports:
+      - "50022:8080"
+  chatroom-23:
+    <<: *default
+    environment:
+      - SID=50023
+    ports:
+      - "50023:8080"
+  chatroom-24:
+    <<: *default
+    environment:
+      - SID=50024
+    ports:
+      - "50024:8080"
+  chatroom-25:
+    <<: *default
+    environment:
+      - SID=50025
+    ports:
+      - "50025:8080"
+  chatroom-26:
+    <<: *default
+    environment:
+      - SID=50026
+    ports:
+      - "50026:8080"
+  chatroom-27:
+    <<: *default
+    environment:
+      - SID=50027
+    ports:
+      - "50027:8080"
+  chatroom-28:
+    <<: *default
+    environment:
+      - SID=50028
+    ports:
+      - "50028:8080"
+  chatroom-29:
+    <<: *default
+    environment:
+      - SID=50029
+    ports:
+      - "50029:8080"
+  chatroom-30:
+    <<: *default
+    environment:
+      - SID=50030
+    ports:
+      - "50030:8080"

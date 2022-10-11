@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+  redis:
+    image: "redis:6.2.7-alpine"
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 2
+        window: 10s
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - REDIS_PORT_NUMBER=6379
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redis-volume:/data
+  api:
+    image: "room-api:latest"
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+        window: 3s
+    ports:
+      - "3000:3000"
+    depends_on:
+      - "redis"

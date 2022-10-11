@@ -1,0 +1,44 @@
+### create a room
+POST http://localhost:3000/api/v1/room/
+Content-Type: application/json
+
+> {%
+    client.test("Create room executed successfully", function() {
+        client.assert(response.status === 201, "Response status is not 201");
+    });
+   client.global.set("room_id_1", response.body.roomId);
+   client.global.set("server_id_1", response.body.serverId);
+%}
+
+### join a room
+GET http://localhost:3000/api/v1/room/{{room_id_1}}
+Accept: application/json
+
+> {%
+    client.test("Join room executed successfully", function() {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+   client.global.set("room_id_2", response.body.roomId);
+   client.global.set("server_id_2", response.body.serverId);
+%}
+
+### check room is authorized
+GET http://localhost:{{server_id_2}}/room/{{room_id_2}}
+Accept: application/json
+
+> {%
+    client.test("Request chat room executed successfully", function() {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+%}
+
+### cancel a room
+DELETE http://localhost:3000/api/v1/room/{{room_id_1}}
+Accept: application/json
+
+> {%
+    client.test("Cancel room executed successfully", function() {
+        client.assert(response.status === 204, "Response status is not 204");
+    });
+%}
+###
